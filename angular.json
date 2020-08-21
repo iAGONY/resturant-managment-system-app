@@ -28,9 +28,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
-            ],
-            "scripts": []
+              "src/styles.scss", 
+                "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              ],
+              "scripts": [
+                "node_modules/jquery/dist/jquery.min.js",
+                "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              ]
           },
           "configurations": {
             "production": {
@@ -123,6 +127,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "resturant-managment-system-app"
+    }
+  },
+  "defaultProject": "resturant-managment-system-app",
+  "cli": {
+    "analytics": "7d7fd58e-ef67-436e-929e-0e1be094ff62"
+  }
 }

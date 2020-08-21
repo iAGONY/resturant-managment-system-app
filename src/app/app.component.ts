@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'resturant-managment-system-app';
+  title = 'RESTURANT MANAGMENT SYSTEM';
 }

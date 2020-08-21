@@ -1,0 +1,42 @@
+<div class="card">
+    <div class="card-header">
+        
+        <nav class="navbar navbar-light bg-light justify-content-between">
+            <a class="navbar-brand">Order Report</a>
+            <div class="form-inline">
+              <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+              <!-- <a class="nav-link" routerLink="/createOrder">Create Order</a> -->
+              <button class="btn btn-outline-success my-2 my-sm-0" routerLink="/createOrder" >Create Order</button>
+              </div>
+          </nav>
+    </div>
+    <div class="card-body" *ngIf="allOrders.length > 0">
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Order Name</th>
+                <th scope="col">Ordered Date</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let order of allOrders; let i=index" >
+                <th scope="row">{{i + 1}}</th>
+                <td>{{order.orderName}}</td>
+                <td>{{order.orderedDate | date}}</td>
+                <td>{{order.status}}</td>
+                <td>
+                    <button  class="btn btn-info" (click)="viewDetail(order)">View Detail</button>
+                    <button  *ngIf="order.status == 'OREDER_RECEIVED'" class="btn btn-success" (click)="perfomPayment(order)">Pay</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="card-body" *ngIf="allOrders.length == 0">
+        * No Record Found
+    </div>
+</div>
