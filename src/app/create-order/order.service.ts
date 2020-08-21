@@ -19,6 +19,6 @@ export class OrderService {
   }
 
   performPayment(id: number) {
-    return this.http.post<any>(environment.ENDPOINT + "/perfomPayment/" + id, {});
+    return this.http.post<any>(environment.ENDPOINT + "perfomPayment/" + id, {});
   }
 }

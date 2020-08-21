@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>{{title}}</h1>
+    <h2>Login to see whats inside.</h2>
+  </div>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="email" class="form-control" id="username" formControlName="username" placeholder="Enter Username">
+      <small id="emailHelp" class="form-text text-muted" *ngIf="loginForm.controls['username'].errors && loginForm.controls['username'].dirty">Username is Required</small>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password">
+      <small id="emailHelp" class="form-text text-muted" *ngIf="loginForm.controls['password'].errors && loginForm.controls['password'].dirty">password is Required</small>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Login</button>
+  </form>
+</div>

@@ -23,15 +23,12 @@ export class OrderReportComponent implements OnInit {
     subscribe(response => {
       
       this.allOrders = response;
-      console.log("response =>> " , this.allOrders)
     },
       errorResponse => {
-        console.log("errorResponse =>> " , errorResponse)
       });
   }
 
   perfomPayment(order) {
-    console.log("route :: " , order)
     this.router.navigateByUrl('/payment',  { state: {data: order} });
   }
 

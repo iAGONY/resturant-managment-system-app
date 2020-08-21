@@ -1,41 +1,61 @@
-<div class="card">
-    <div class="card-header">
-        Perform Payment
+<div class="container">
+    <div class="jumbotron">
+        <h1>RESTURANT MANAGMENT SYSTEM</h1>
+        <h2>Simply the best.</h2>
     </div>
-    <div class="card-body">
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Order Name</label>
-            <div class="col-sm-10"> {{order.orderName }}</div>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard">Dashboard</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" routerLink="/createOrder">Create Order</a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/order">Order</a>
+        </li>
+      </ul>
+    <div class="card">
+        <div class="card-header">
+            Perform Payment
         </div>
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Order Date</label>
-            <div class="col-sm-10">{{order.orderedDate | date }}</div>
+        <div class="card-body">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Order Name</label>
+                <div class="col-sm-10"> {{order.orderName }}</div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Order Date</label>
+                <div class="col-sm-10">{{order.orderedDate | date }}</div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Status</label>
+                <div class="col-sm-10"> {{order.status}}</div>
+            </div>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Item Name</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of items; let i=index;">
+                        <td scope="row">{{i + 1}}</td>
+                        <td>{{item.itemName}}</td>
+                        <td>{{item.price}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Total</td>
+                        <td>{{totalPrice}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-primary btn-lg btn-block" (click)="perfomPayment()">Pay</button>
         </div>
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Status</label>
-            <div class="col-sm-10"> {{order.status}}</div>
-        </div>
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Item Name</th>
-                    <th scope="col">Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of items; let i=index;">
-                    <td scope="row">{{i + 1}}</td>
-                    <td>{{item.itemName}}</td>
-                    <td>{{item.price}}</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>Total</td>
-                    <td>{{totalPrice}}</td>
-                </tr>
-            </tbody>
-        </table>
-        <button class="btn btn-primary btn-lg btn-block" (click)="perfomPayment()">Pay</button>
     </div>
+
+
+
 </div>

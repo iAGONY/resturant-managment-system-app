@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { OrderService } from '../create-order/order.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-payment',
@@ -15,7 +16,8 @@ export class PaymentComponent implements OnInit {
   totalPrice: number;
   constructor(private orderService: OrderService,
     public activatedRoute: ActivatedRoute,
-    private router: Router) {
+    private router: Router,
+    private toasterService: ToastrService) {
     if(this.router.getCurrentNavigation().extras.state) {
       this.order = this.router.getCurrentNavigation().extras.state.data;
       this.items = this.order.items;
@@ -39,11 +41,11 @@ export class PaymentComponent implements OnInit {
   perfomPayment() {
     this.orderService.performPayment(this.order.id).
     subscribe(response => {
-      console.log("response =>> " , response)
       this.router.navigateByUrl('/order');
+      this.toasterService.success("Successfuly paied", '');
     },
       errorResponse => {
-        console.log("errorResponse =>> " , errorResponse)
+        this.toasterService.error("Failed to perfom payment", '');
       });
   }
 

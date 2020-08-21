@@ -1,1 +1,91 @@
-<p>dashboard works!</p>
+<div class="container">
+  <div class="jumbotron">
+    <h1>{{title}}</h1>
+    <h2>Simply the best.</h2>
+  </div>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/dashboard">Dashboard</a>
+    </li>
+    <!-- <li class="nav-item">
+        <a class="nav-link" routerLink="/createOrder">Create Order</a>
+      </li> -->
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/order">Order</a>
+    </li>
+  </ul>
+  <div class="card">
+    <div class="card-header">
+        <nav class="navbar navbar-light bg-light justify-content-between">
+            <a class="navbar-brand"> Statistics</a>
+        </nav>
+    </div>
+    <div class="card-body">
+      <div class="card-group">
+        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+          <div class="card-header">TODAY_TOTAL_PENDING_AMOUNT</div>
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text">{{ dashboardData.TODAY_TOTAL_PENDING_AMOUNT ? dashboardData.TODAY_TOTAL_PENDING_AMOUNT : 'N/A'}}</p>
+          </div>
+        </div>
+        <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+          <div class="card-header">TODAY_TOTAL_ORDER</div>
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text">{{dashboardData.TODAY_TOTAL_ORDER ? dashboardData.TODAY_TOTAL_ORDER : 'N/A'}}</p>
+          </div>
+        </div>
+        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+          <div class="card-header">TODAY_TOTAL_PAID_ADMOUNT</div>
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text">{{dashboardData.TODAY_TOTAL_PAID_ADMOUNT ? dashboardData.TODAY_TOTAL_PAID_ADMOUNT : 'N/A'}}</p>
+          </div>
+        </div>
+        <div class="card bg-light mb-3" style="max-width: 18rem;">
+          <div class="card-header">TODAY_PAYMENT_PENDING_ORDERS</div>
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text">{{dashboardData.TODAY_PAYMENT_PENDING_ORDERS ? dashboardData.TODAY_PAYMENT_PENDING_ORDERS : 'N/A'}}</p>
+          </div>
+        </div>
+      </div>
+    
+    
+      <div class="card-group">
+        <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+          <div class="card-header">TODAY_TOTAL_PAID_ORDER</div>
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text">{{dashboardData.TODAY_TOTAL_PAID_ORDER ? dashboardData.TODAY_TOTAL_PAID_ORDER : 'N/A'}}</p>
+          </div>
+        </div>
+        <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+          <div class="card-header">TODAY_TOTAL_PENDING_AMOUNT</div>
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text">{{dashboardData.TODAY_TOTAL_PENDING_AMOUNT ? dashboardData.TODAY_TOTAL_PENDING_AMOUNT :'N/A'}}</p>
+          </div>
+        </div>
+        <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+          <div class="card-header">TODAY_TOTAL_ORDER</div>
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text">{{dashboardData.TODAY_TOTAL_ORDER ? dashboardData.TODAY_TOTAL_ORDER : 'N/A' }}</p>
+          </div>
+    
+        </div>
+        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+          <div class="card-header">TODAY_TOTAL_PAID_ADMOUNT</div>
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text">{{ dashboardData.TODAY_TOTAL_PAID_ADMOUNT  ? dashboardData.TODAY_TOTAL_PAID_ADMOUNT : 'N/A'}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+  
+</div>

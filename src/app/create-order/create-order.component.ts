@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormArray, FormGroup, Validators } from '@angular/forms';
 import { OrderService } from './order.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create-order',
@@ -12,7 +13,8 @@ export class CreateOrderComponent implements OnInit {
   createOrderForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
-    private orderService: OrderService) { }
+    private orderService: OrderService,
+    private toasterService: ToastrService) { }
 
   ngOnInit(): void {
     this.createClientForm();
@@ -21,7 +23,7 @@ export class CreateOrderComponent implements OnInit {
 
   createClientForm() {
     this.createOrderForm = this.formBuilder.group({
-      orderName: [''],
+      orderName: ['',Validators.required],
       items: this.formBuilder.array([])
     });
     this.addNewItems();
@@ -34,8 +36,8 @@ export class CreateOrderComponent implements OnInit {
 
   addItems() {
     return this.formBuilder.group({
-      itemName: [''],
-      price: [0]
+      itemName: ['',Validators.required],
+      price: [0,[Validators.required, Validators.pattern('[0-9]{1,9}')]]
     });
   }
 
@@ -49,14 +51,13 @@ export class CreateOrderComponent implements OnInit {
   }
 
   onSubmit() {
-    // console.warn(this.createOrderForm.value);
     this.orderService.create(this.createOrderForm.value).
     subscribe(response => {
-      console.log("response =>> " , response)
       this.resetForm();
+      this.toasterService.success("Successfuly created", '');
     },
       errorResponse => {
-        console.log("errorResponse =>> " , errorResponse)
+        this.toasterService.error("Failed to create Order", '');
       });
   }
 
